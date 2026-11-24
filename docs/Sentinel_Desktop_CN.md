@@ -6,10 +6,14 @@
 
 桌面端适用于安装了 Microsoft Edge WebView2 Evergreen Runtime 的 Windows 10／11。
 
-- **从仓库启动**：安装 Python 3.12 后，双击根目录的 [Sentinel.cmd](../Sentinel.cmd)。首次使用时按提示将桌面依赖安装到项目的 `.venv`。
+- **从仓库启动**：安装 Python 3.12 后双击根目录的 [Sentinel.cmd](../Sentinel.cmd)，按首次提示准备项目的 `.venv` 并安装桌面依赖。配置成功后会在根目录生成带摄像头图标的 **Sentinel.exe**，以后双击该 EXE 即可打开 Sentinel 窗口，无需命令行窗口。
 - **从 Windows x64 目录版启动**：保留整个 `Sentinel` 文件夹（包括 `_internal`），双击 `Sentinel.exe`。
 
 若提示缺少 Runtime，请安装后重新打开 Sentinel。[Microsoft WebView2](https://developer.microsoft.com/microsoft-edge/webview2/)
+
+如需桌面快捷方式，可右键 **Sentinel.exe**，选择 **发送到 → 桌面快捷方式**。Windows 11 必要时先点 **显示更多选项**。源码版启动器应与仓库的 `.venv` 和源码一同保留，移动仓库后请重新建立快捷方式。依赖缺失时，运行 **Sentinel.cmd** 修复环境。
+
+源码版启动器在本机生成，使用仓库里的 Python 环境。Windows x64 目录包在 `_internal` 中自带运行环境，移动时需携带整个文件夹。两者均打开 **Sentinel** 窗口，通过 **Start Sentinel** 和 **Stop Sentinel** 启停服务。
 
 1. 点击 **Start Sentinel**，等底栏显示 **Running**。首次使用新数据目录时，点击 **Show token** 并保存管理员令牌，再在 Dashboard 的登录区输入。点击 **I saved the token** 可收起令牌提示区。
 2. 按 Dashboard 的配对流程连接 CamFlow v1.1.2，手机使用 Dashboard 副标题旁显示的局域网地址。桌面和局域网浏览器共用同一服务和权限规则。
@@ -28,10 +32,10 @@
 沿用旧部署时先停止旧服务，确认原目录包含 `app\config`，从 PowerShell 或快捷方式传入该项目数据根目录，例如：
 
 ```powershell
-.\Sentinel.cmd --data-dir "C:\Projects\CCTV-Smartphone-AI-Monitoring"
+.\Sentinel.exe --data-dir "C:\Projects\CCTV-Smartphone-AI-Monitoring"
 ```
 
-目录版 `Sentinel.exe` 支持同样的参数。指定原数据目录后，可沿用原有配置和摄像头配对。相对 Output Root 以该数据目录为起点，绝对路径仍指向原位置。可用 `--port 8001` 更换端口，或用 `--host 127.0.0.1` 仅允许本机访问。
+两种 EXE 和 `Sentinel.cmd` 均支持相同参数。在快捷方式的 **目标** 中，将参数写在加引号的 EXE 路径之后，含空格的数据路径也应加引号。指定原数据目录后，可沿用原有配置和摄像头配对。相对 Output Root 以该数据目录为起点，绝对路径仍指向原位置。可用 `--port 8001` 更换端口，或用 `--host 127.0.0.1` 仅允许本机访问。
 
 ## 构建 Windows 目录版
 

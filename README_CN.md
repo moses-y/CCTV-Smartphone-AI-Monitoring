@@ -472,7 +472,8 @@ Sentinel/
 ├── CamFlow_UserGuide.md          # 安卓端使用说明
 ├── requirements.txt              # 安装依赖
 ├── version.properties            # PC 端、Android 端和文档共用的版本信息
-├── Sentinel.cmd                  # Windows 桌面启动入口
+├── Sentinel.cmd                  # 首次配置与图形启动器生成
+├── Sentinel.exe                  # 本机生成的图形启动器（Git 忽略）
 ├── sentinel_desktop.py           # 桌面窗口与服务启停
 ├── .gitignore                    # 忽略项
 ├── LICENSE                       # MIT License
@@ -530,9 +531,7 @@ Sentinel/
 │   ├── build.gradle.kts
 │   ├── settings.gradle.kts
 │   ├── ...
-│   ├── CamFlow-v1.1.2.apk        # 当前本地构建安装包（debug-signed）
-│   ├── CamFlow-v1.1.1.apk        # 保留的旧版安装包
-│   └── CamFlow-v1.1.0.apk        # 保留的旧版安装包
+│   └── CamFlow-v1.1.2.apk        # 当前本地构建安装包（debug-signed）
 │
 ├── assets/                       # README 展示图片
 │   ├── app_main_page.jpg
@@ -608,7 +607,9 @@ volcenginesdkarkruntime        # AI 模块依赖
 
 #### 3.3.3. Windows 桌面端
 
-在 Windows 10 或 11 上，双击项目根目录的 [Sentinel.cmd](Sentinel.cmd)。首次使用请先安装 Python 3.12，并在提示出现时同意创建 `.venv` 和安装桌面依赖。若 Sentinel 提示缺少 Microsoft Edge WebView2 Evergreen Runtime，安装后重新打开。
+在 Windows 10 或 11 上，安装 Python 3.12 后双击项目根目录的 [Sentinel.cmd](Sentinel.cmd)。按首次提示准备 `.venv` 并安装桌面依赖。配置成功后会在根目录生成带摄像头图标的 **Sentinel.exe**，以后双击该 EXE 即可打开 Sentinel，无需命令行窗口。依赖缺失时，启动器会提示重新运行 Sentinel.cmd。
+
+如需桌面快捷方式，可右键生成的 **Sentinel.exe**，选择 **发送到 → 桌面快捷方式**，必要时先点 **显示更多选项**。EXE 应与 `.venv` 和源码一同保留在仓库目录中，生成文件作为本地构建产物保存。
 
 使用 Windows x64 目录版时，保留完整的 `Sentinel` 文件夹并双击 `Sentinel.exe`。打包版和数据目录的用法见 [Windows 桌面指南](docs/Sentinel_Desktop_CN.md)。
 
@@ -674,7 +675,7 @@ PhoneCamSender/CamFlow-v1.1.2.apk
 
 #### 4.1.1. Windows 桌面端
 
-1. 双击 **Sentinel.cmd**，然后点击 **Start Sentinel**。
+1. 首次运行 **Sentinel.cmd** 完成配置。以后打开项目根目录的 **Sentinel.exe** 或其桌面快捷方式，再点击 **Start Sentinel**。
 2. 首次使用时点击 **Show token**，保存令牌后在 Dashboard 顶部的权限面板中输入。点击 **I saved the token** 可收起令牌提示区。
 3. 在手机端填入 Dashboard 副标题旁的 **CamFlow** 地址。按[摄像头配对步骤](#camera-pairing)操作，再打开 **Ingest**。
 4. 点击 **Stop Sentinel** 可结束当前录像并停止服务。最小化时服务继续运行。运行中关闭窗口时，程序会询问是否停止服务并退出。
@@ -1744,7 +1745,7 @@ Sentinel 项目基于 MIT License 开源发布。
 
 <br>
 
-<b>Черный Треугольник</b><br>
+<b>Треугольник</b><br>
 <sub><a href="https://t.me/open_source_friend/5845">Open Source #8/4</a></sub>
 
 </td>

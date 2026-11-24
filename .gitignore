@@ -33,6 +33,8 @@ app/config/.sentinel-service.lock
 .sentinel-desktop/
 CODEX_MODIFICATION_LOG.md
 .local-validation/
+/Sentinel.exe
+/Sentinel.build-*.exe
 
 # Local release preparation notes (not project documentation)
 /docs/release-v1.1.4.md

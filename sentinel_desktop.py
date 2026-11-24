@@ -109,7 +109,7 @@ def window_close_handler(window, controller, closing, confirm=native_message):
 
 
 def run_desktop(argv):
-    parser = argparse.ArgumentParser(description="Sentinel Desktop for Windows")
+    parser = argparse.ArgumentParser(description="Sentinel for Windows")
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--host", choices=("0.0.0.0", "127.0.0.1"), default="0.0.0.0")
@@ -131,7 +131,7 @@ def run_desktop(argv):
             webview.settings.update(ALLOW_DOWNLOADS=True, ALLOW_FILE_URLS=False,
                                     OPEN_EXTERNAL_LINKS_IN_BROWSER=True)
             width, height = initial_window_size()
-            window = webview.create_window("Sentinel Desktop", url=url, width=width, height=height,
+            window = webview.create_window("Sentinel", url=url, width=width, height=height,
                                            min_size=(min(640, width), min(480, height)),
                                            text_select=True, zoomable=True)
             window.events.closing += window_close_handler(window, controller, closing)

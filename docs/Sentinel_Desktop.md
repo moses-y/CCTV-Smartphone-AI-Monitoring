@@ -6,10 +6,14 @@
 
 Sentinel Desktop runs on Windows 10 or 11 with Microsoft Edge WebView2 Evergreen Runtime.
 
-- **From the repository:** install Python 3.12, then double-click [Sentinel.cmd](../Sentinel.cmd). On first use, accept the prompt to install the desktop dependencies in the project's `.venv`.
+- **From the repository:** install Python 3.12, then double-click [Sentinel.cmd](../Sentinel.cmd). Accept the first-run prompt to prepare the project's `.venv` and install desktop dependencies. Setup generates **Sentinel.exe** with the camera icon in the project root. On later launches, double-click that EXE to open the Sentinel window without a command window.
 - **From the Windows x64 package:** keep the entire `Sentinel` folder, including `_internal`, and double-click `Sentinel.exe`.
 
 If prompted, install the Runtime and reopen Sentinel. [Microsoft WebView2](https://developer.microsoft.com/microsoft-edge/webview2/)
+
+For a desktop shortcut, right-click **Sentinel.exe** and select **Send to → Desktop (create shortcut)**. On Windows 11, select **Show more options** first if needed. Keep the source launcher beside the repository's `.venv` and source files. If you move the repository, recreate the shortcut. If dependencies are missing, run **Sentinel.cmd** to repair the environment.
+
+The source launcher is generated locally and uses the repository's Python environment. The Windows x64 package includes its own runtime under `_internal` and can be moved as an entire folder. Both open the **Sentinel** window and use the same **Start Sentinel** and **Stop Sentinel** controls.
 
 1. Select **Start Sentinel** and wait for **Running**. On first launch with a new data directory, click **Show token**, save the administrator token and enter it in the Dashboard sign-in panel. Click **I saved the token** to dismiss the token panel.
 2. Pair CamFlow v1.1.2 as usual and use the address shown next to the Dashboard subtitle. The desktop view and LAN browsers use the same service and access rules.
@@ -28,10 +32,10 @@ By default, the desktop app stores settings, pairings, logs and recordings under
 To reuse an installation in place, first stop its service and select the existing root containing `app\config`, for example in PowerShell or a shortcut:
 
 ```powershell
-.\Sentinel.cmd --data-dir "C:\Projects\CCTV-Smartphone-AI-Monitoring"
+.\Sentinel.exe --data-dir "C:\Projects\CCTV-Smartphone-AI-Monitoring"
 ```
 
-The packaged `Sentinel.exe` accepts the same options. An existing data folder keeps its settings and paired cameras. A relative Output Root is resolved inside that folder, while an absolute path still points to the same location. Use `--port 8001` if you need a different port, or `--host 127.0.0.1` to limit access to the PC.
+Both EXE variants and `Sentinel.cmd` accept the same options. In a shortcut's **Target**, append arguments after the quoted EXE path. Quote data-folder paths containing spaces. An existing data folder keeps its settings and paired cameras. A relative Output Root is resolved inside that folder, while an absolute path still points to the same location. Use `--port 8001` if you need a different port, or `--host 127.0.0.1` to limit access to the PC.
 
 ## Build a Windows package
 

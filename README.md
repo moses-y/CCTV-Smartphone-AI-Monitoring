@@ -10,7 +10,7 @@
 <br>
 [🇺🇸 English](README.md) | [🇨🇳 中文](README_CN.md)
 
-This project has been featured by ruanyf's [weekly](#CR), xuanli199's [Tech Review](#CR), and Черный Треугольник's [Open Source](#CR). We sincerely appreciate their recognition and support.
+This project has been featured by ruanyf's [weekly](#CR), xuanli199's [Tech Review](#CR), and Треугольник's [Open Source](#CR). We sincerely appreciate their recognition and support.
 
 🚀 Latest Update (ongoing): [v1.1.6 — 2026-11-05](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
 
@@ -438,7 +438,8 @@ Sentinel/
 ├── CamFlow_UserGuide.md          # Android user guide
 ├── requirements.txt              # Dependency installation list
 ├── version.properties            # Shared version metadata for PC, Android, and documentation
-├── Sentinel.cmd                  # Windows desktop entry point
+├── Sentinel.cmd                  # First-run setup and graphical launcher generation
+├── Sentinel.exe                  # Locally generated Windows launcher (ignored by Git)
 ├── sentinel_desktop.py           # Desktop window and service controls
 ├── .gitignore                    # Git ignore rules
 ├── LICENSE                       # MIT License
@@ -496,9 +497,7 @@ Sentinel/
 │   ├── build.gradle.kts
 │   ├── settings.gradle.kts
 │   ├── ...
-│   ├── CamFlow-v1.1.2.apk        # Current locally built installation package (debug-signed)
-│   ├── CamFlow-v1.1.1.apk        # Retained legacy installation package
-│   └── CamFlow-v1.1.0.apk        # Retained legacy installation package
+│   └── CamFlow-v1.1.2.apk        # Current locally built installation package (debug-signed)
 │
 ├── assets/                       # Images used in README
 │   ├── app_main_page.jpg
@@ -578,7 +577,9 @@ volcenginesdkarkruntime        # AI module dependency
 
 #### 3.3.3. Windows Desktop
 
-On Windows 10 or 11, double-click [Sentinel.cmd](Sentinel.cmd) in the project root. For the first launch, install Python 3.12 and accept the prompt to create `.venv` and install the desktop dependencies. If Sentinel prompts for Microsoft Edge WebView2 Evergreen Runtime, install it and open Sentinel again.
+On Windows 10 or 11, install Python 3.12 and double-click [Sentinel.cmd](Sentinel.cmd) in the project root. Accept the first-run prompt to prepare `.venv` and install the desktop dependencies. Setup also generates **Sentinel.exe** with the camera icon in the project root. After setup, double-click this EXE to open Sentinel without a command window. If dependencies are missing, the launcher prompts you to run Sentinel.cmd again.
+
+To add a desktop shortcut, right-click the generated **Sentinel.exe** and select **Send to → Desktop (create shortcut)**, using **Show more options** if needed. Keep the EXE in the repository alongside `.venv` and the source files. The generated EXE is a local build artifact.
 
 If you are using the Windows x64 package, keep the `Sentinel` folder intact and double-click `Sentinel.exe`. See the [Windows desktop guide](docs/Sentinel_Desktop.md) for package and data-folder instructions.
 
@@ -645,7 +646,7 @@ For developers who want to debug or modify features, the app can be built from s
 
 #### 4.1.1. Windows Desktop
 
-1. Double-click **Sentinel.cmd** and click **Start Sentinel**.
+1. On first use, run **Sentinel.cmd** to finish setup. Afterwards, open **Sentinel.exe** in the project root or its desktop shortcut, then click **Start Sentinel**.
 2. On first use, click **Show token**, save the token, and enter it in the access panel at the top of Dashboard. Click **I saved the token** to dismiss the token panel.
 3. Enter the **CamFlow** address next to the Dashboard subtitle in the phone app. Follow the [camera pairing steps](#camera-pairing), then enable **Ingest**.
 4. Click **Stop Sentinel** to finish the current recording and stop the service. Minimizing keeps it running. Closing the window while the service is running asks whether to stop and exit.
@@ -1753,7 +1754,7 @@ Copyright © 2026 Suzuran0y
 
 <br>
 
-<b>Черный Треугольник</b><br>
+<b>Треугольник</b><br>
 <sub><a href="https://t.me/open_source_friend/5845">Open Source #8/4</a></sub>
 
 </td>
