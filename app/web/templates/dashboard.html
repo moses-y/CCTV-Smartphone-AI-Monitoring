@@ -90,6 +90,14 @@
           <select id="mediaKind"><option value="videos">Recordings</option><option value="snapshots">Snapshots</option></select>
           <button id="mediaRefresh" type="button">Refresh</button>
         </div>
+        <p id="mediaDateHint" class="hint">Filter by the file's modified date in your local time zone. Both dates are inclusive.</p>
+        <div class="row media-controls media-date-controls" role="group" aria-label="Modified date filter" aria-describedby="mediaDateHint">
+          <label for="mediaStartDate">Start date</label>
+          <input id="mediaStartDate" type="date">
+          <label for="mediaEndDate">End date</label>
+          <input id="mediaEndDate" type="date">
+          <button id="mediaClearDates" type="button">Clear filter</button>
+        </div>
         <p id="mediaMessage" class="hint" role="status"></p>
         <div class="media-scroll"><table class="media-table">
           <thead><tr><th>File</th><th>Modified</th><th>Size</th><th>Download</th></tr></thead>

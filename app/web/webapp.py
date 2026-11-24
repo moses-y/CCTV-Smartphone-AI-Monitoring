@@ -361,10 +361,20 @@ def create_app(cfg_store, frame_buf, stats, rec_rt, ai_rt, event_store, logger, 
             page_size = int(request.args.get("page_size", "25"))
             if not 1 <= page <= 400 or not 1 <= page_size <= 25:
                 raise ValueError("invalid pagination")
+            start_arg = request.args.get("modified_from")
+            end_arg = request.args.get("modified_before")
+            try:
+                modified_from = int(start_arg) if start_arg is not None else None
+                modified_before = int(end_arg) if end_arg is not None else None
+            except ValueError:
+                raise ValueError("invalid modification timestamp") from None
+            if modified_from is not None and modified_before is not None and modified_from >= modified_before:
+                raise ValueError("invalid modification date range")
             cfg = cfg_store.get_copy()
             with rec_rt.lock:
                 active = rec_rt.rec.current_path if rec_rt.rec else None
-            result = list_media(cfg["out_root"], request.args.get("kind", "videos"), active, page, page_size)
+            result = list_media(cfg["out_root"], request.args.get("kind", "videos"), active, page, page_size,
+                                modified_from=modified_from, modified_before=modified_before)
             return jsonify(ok=True, **result)
         except ValueError as exc:
             return jsonify(ok=False, error=str(exc)), 400

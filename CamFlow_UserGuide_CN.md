@@ -135,7 +135,7 @@ CamFlow 主要功能包括：
 
 ### 1.3. 安装方式 [⌃](#top)
 
-Sentinel v1.1.6 搭配 CamFlow v1.1.2 使用。该 APK 也适用于 Sentinel v1.1.4 和 v1.1.5。旧版 CamFlow v1.1.0 和 v1.1.1 无法与启用认证的服务端配对。
+Sentinel v1.1.7 搭配 CamFlow v1.1.2 使用。该 APK 也适用于 Sentinel v1.1.4 至 v1.1.6。旧版 CamFlow v1.1.0 和 v1.1.1 无法与启用认证的服务端配对。
 
 #### 1.3.1. 普通用户安装（APK 安装包）
 > 适用于“使用者/部署者”。

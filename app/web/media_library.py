@@ -25,7 +25,7 @@ def media_path(output, kind, relative):
     return path
 
 
-def list_media(output, kind, active, page=1, page_size=25):
+def list_media(output, kind, active, page=1, page_size=25, *, modified_from=None, modified_before=None):
     if kind not in KINDS:
         raise ValueError("unknown media kind")
     root = safe_root(Path(output) / kind)
@@ -49,6 +49,10 @@ def list_media(output, kind, active, page=1, page_size=25):
                                     continue
                                 info = path.stat()
                             except (OSError, ValueError):
+                                continue
+                            if modified_from is not None and info.st_mtime < modified_from:
+                                continue
+                            if modified_before is not None and info.st_mtime >= modified_before:
                                 continue
                             yield {"path": relative, "name": item.name,
                                    "size_bytes": info.st_size, "modified_at": info.st_mtime}

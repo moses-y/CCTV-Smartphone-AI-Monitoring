@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/suzuran0y/CCTV-Smartphone-AI-Monitoring?style=social)](#stars)
 [![GitHub forks](https://img.shields.io/github/forks/suzuran0y/CCTV-Smartphone-AI-Monitoring?style=social)](#stars)
-[![Version](https://img.shields.io/badge/version-v1.1.6-black)](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
+[![Version](https://img.shields.io/badge/version-v1.1.7-black)](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
 [![Python](https://img.shields.io/badge/python-3.9%2B-yellow)](https://www.python.org/)
 [![Android](https://img.shields.io/badge/Android-8.0%2B-green)](CamFlow_UserGuide.md)
 <br>
@@ -12,7 +12,7 @@
 
 本项目已被 [科技爱好者周刊](#CR)、[科技补全](#CR)及 [Open Source](#CR)收录。感谢他们的认可与支持。
 
-🚀 最新更新（持续迭代中）：[v1.1.6 — 2026-11-05](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
+🚀 最新更新（持续迭代中）：[v1.1.7 — 2026-11-25](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
 
 Sentinel 是一个运行于局域网环境中的分布式实时视觉系统框架。
 
@@ -986,6 +986,8 @@ Settings 中分别配置 **Frame stale after (sec)** 和 **Pause recording after
 
 管理员登录后，在左侧展开 **Recordings & Snapshots**，选择 Recordings 或 Snapshots，点击 Refresh 查看当前 Output Root 的文件，每页最多 25 项，可用 Previous／Next 翻页。列表展示文件名、修改时间、大小及 Download 链接，按修改时间倒序排列；不提供删除操作。
 
+使用 **Start date** 和 **End date** 按列表中 **Modified** 对应的文件修改日期筛选，日期以查看端的本地时区为准。可以只填一端，起止日期均包含当天。修改日期或点击 **Clear filter** 后回到第一页，结果仍按修改时间倒序排列，并可直接下载。
+
 仅展示当前输出目录下按系统命名规则保存的录像和截图，也可显示符合规则的历史文件。正在写入的录像段不展示且不能下载，片段关闭后刷新即可；下载受管理员权限保护，配对手机和访客均不可访问。不会跟随符号链接或 Windows 目录联接。
 
 切换 Output Root 后只浏览新目录，旧目录保留在本地。自动清理可能移除列表中的文件，此时刷新列表即可；可浏览历史文件不代表它们已纳入自动清理登记。
@@ -1643,11 +1645,11 @@ Only output one JSON object. Do not output markdown or extra explanations.
 
 Sentinel 系统由 **PC 端服务程序 + Web Dashboard + Android 端 CamFlow** 组成，当前版本信息如下：
 
-- **Sentinel（PC + Dashboard）版本**：v1.1.6
+- **Sentinel（PC + Dashboard）版本**：v1.1.7
 - **CamFlow（Android 源码）版本**：v1.1.2
 - **仓库内 CamFlow APK 版本**：v1.1.2（debug-signed）
-- **本文档版本**：v1.1.6
-- **最后更新日期**：2026-11-06
+- **本文档版本**：v1.1.7
+- **最后更新日期**：2026-11-25
 
 Dashboard 页脚显示当前 PC 版本。手机端继续使用 **CamFlow v1.1.2**。
 

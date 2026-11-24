@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/suzuran0y/CCTV-Smartphone-AI-Monitoring?style=social)](#stars)
 [![GitHub forks](https://img.shields.io/github/forks/suzuran0y/CCTV-Smartphone-AI-Monitoring?style=social)](#stars)
-[![Version](https://img.shields.io/badge/version-v1.1.6-black)](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
+[![Version](https://img.shields.io/badge/version-v1.1.7-black)](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
 [![Python](https://img.shields.io/badge/python-3.9%2B-yellow)](https://www.python.org/)
 [![Android](https://img.shields.io/badge/Android-8.0%2B-green)](CamFlow_UserGuide.md)
 <br>
@@ -12,7 +12,7 @@
 
 This project has been featured by ruanyf's [weekly](#CR), xuanli199's [Tech Review](#CR), and Треугольник's [Open Source](#CR). We sincerely appreciate their recognition and support.
 
-🚀 Latest Update (ongoing): [v1.1.6 — 2026-11-05](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
+🚀 Latest Update (ongoing): [v1.1.7 — 2026-11-25](https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring/issues/2)
 
 Sentinel is a distributed real-time vision system framework for local area networks (LAN).
 
@@ -968,6 +968,8 @@ Browsers viewing the same feed reuse the JPEG for the same frame and JPEG Qualit
 
 After administrator login, expand **Recordings & Snapshots** on the left. Select Recordings or Snapshots, click Refresh, and use Previous / Next for pages of up to 25 items. The list shows filenames, modification times, sizes and Download links, newest modified first. No deletion controls are provided.
 
+Use **Start date** and **End date** to filter by the file's **Modified** date in your local time zone. Either date can be left blank, and both selected dates include the whole day. Changing either date or clicking **Clear filter** returns to the first page. Matching files are still listed newest first, with the same download links.
+
 Only recordings and snapshots under the current Output Root that follow the system's filename rules are listed, including matching historical files. The active recording segment is hidden and cannot be downloaded; refresh after it closes. Downloads require administrator login; visitors and paired phones cannot access them. Symbolic links and Windows junctions are rejected.
 
 Changing Output Root switches the browser to that directory; old directories remain on disk. Cleanup may remove a listed file before download, in which case refresh the list. Listing a historical file does not register it for automatic cleanup.
@@ -1649,11 +1651,11 @@ Only output one JSON object. Do not output markdown or extra explanations.
 The Sentinel system consists of **PC-side service program + Web Dashboard + Android CamFlow client**.  
 The current version information is as follows:
 
-- **Sentinel (PC + Dashboard) Version**: v1.1.6
+- **Sentinel (PC + Dashboard) Version**: v1.1.7
 - **CamFlow (Android source) Version**: v1.1.2
 - **Bundled CamFlow APK Version**: v1.1.2 (debug-signed)
-- **Documentation Version**: v1.1.6
-- **Last Updated**: 2026-11-06
+- **Documentation Version**: v1.1.7
+- **Last Updated**: 2026-11-25
 
 The Dashboard footer shows the current PC version. Continue using **CamFlow v1.1.2** with this PC release.
 
